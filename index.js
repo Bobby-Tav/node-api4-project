@@ -1,4 +1,4 @@
-require('dotenv')
+require('dotenv').config()
 
 const POST = process.env.POST || 5000;
 
