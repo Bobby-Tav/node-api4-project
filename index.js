@@ -18,9 +18,6 @@ server.get('/',(req,res)=>{
     `)
 })
 
-server.use("*",(req,res)=>{
-    res.json({message:"web 44 id awesome indeed"})
-})
 server.get('/api/users',(req,res)=>{
     res.json([{username:"robert",password:"abc"},{username:"robert1",password:"abc"}])
 })
@@ -43,7 +40,6 @@ server.post('/api/login',(req,res)=>{
         }else{
             res.json("Username and Password does not match")
         }
-        
     }
 })
 
