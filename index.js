@@ -18,30 +18,30 @@ server.get('/',(req,res)=>{
     `)
 })
 
-// server.get('/api/users',(req,res)=>{
-//     res.json([{username:"robert",password:"abc"},{username:"robert1",password:"abc"}])
-// })
+server.get('/api/users',(req,res)=>{
+    res.json([{username:"robert",password:"abc"},{username:"robert1",password:"abc"}])
+})
 
-// server.post('/api/register',(req,res)=>{
-//     const{username, password} = req.body;
-//     if(!username|| !password){
-//         res.status(400).json({message:"Please provide a username or password"})
-//     }else{
-//         res.json(req.body)
-//     }
-// })
-// server.post('/api/login',(req,res)=>{
-//     const{username, password} = req.body;
-//     if(!username|| !password){
-//         res.status(400).json({message:"Please provide a username or password"})
-//     }else{
-//         if(username === 'robert' && password ==='abc'){
-//             res.json("Welcome")
-//         }else{
-//             res.json("Username and Password does not match")
-//         }
-//     }
-// })
+server.post('/api/register',(req,res)=>{
+    const{username, password} = req.body;
+    if(!username|| !password){
+        res.status(400).json({message:"Please provide a username or password"})
+    }else{
+        res.json(req.body)
+    }
+})
+server.post('/api/login',(req,res)=>{
+    const{username, password} = req.body;
+    if(!username|| !password){
+        res.status(400).json({message:"Please provide a username or password"})
+    }else{
+        if(username === 'robert' && password ==='abc'){
+            res.json("Welcome")
+        }else{
+            res.json("Username and Password does not match")
+        }
+    }
+})
 
 server.use('*',(req,res)=>{
     res.status(500).json({message:'could not reach the info'})
