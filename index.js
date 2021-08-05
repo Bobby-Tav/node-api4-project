@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const POST = process.env.POST || 5000;
+const PORT = process.env.PORT || 5000;
 
 const express = require('express');
 const cors = require('cors');
@@ -18,35 +18,35 @@ server.get('/',(req,res)=>{
     `)
 })
 
-server.get('/api/users',(req,res)=>{
-    res.json([{username:"robert",password:"abc"},{username:"robert1",password:"abc"}])
-})
+// server.get('/api/users',(req,res)=>{
+//     res.json([{username:"robert",password:"abc"},{username:"robert1",password:"abc"}])
+// })
 
-server.post('/api/register',(req,res)=>{
-    const{username, password} = req.body;
-    if(!username|| !password){
-        res.status(400).json({message:"Please provide a username or password"})
-    }else{
-        res.json(req.body)
-    }
-})
-server.post('/api/login',(req,res)=>{
-    const{username, password} = req.body;
-    if(!username|| !password){
-        res.status(400).json({message:"Please provide a username or password"})
-    }else{
-        if(username === 'robert' && password ==='abc'){
-            res.json("Welcome")
-        }else{
-            res.json("Username and Password does not match")
-        }
-    }
-})
+// server.post('/api/register',(req,res)=>{
+//     const{username, password} = req.body;
+//     if(!username|| !password){
+//         res.status(400).json({message:"Please provide a username or password"})
+//     }else{
+//         res.json(req.body)
+//     }
+// })
+// server.post('/api/login',(req,res)=>{
+//     const{username, password} = req.body;
+//     if(!username|| !password){
+//         res.status(400).json({message:"Please provide a username or password"})
+//     }else{
+//         if(username === 'robert' && password ==='abc'){
+//             res.json("Welcome")
+//         }else{
+//             res.json("Username and Password does not match")
+//         }
+//     }
+// })
 
 server.use('*',(req,res)=>{
     res.status(500).json({message:'could not reach the info'})
 })
 
-server.listen(POST,()=>{
-    console.log(`listening to ${POST}`)
+server.listen(PORT,()=>{
+    console.log(`listening to ${PORT}`)
 })
