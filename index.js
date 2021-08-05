@@ -12,8 +12,16 @@ server.use(express.json())
 server.use(cors());
 server.use(helmet())
 
+server.use("*",(req,res)=>{
+    res.json({message:"web 44 id awesome indeed"})
+})
+server.get('/',(req,res)=>{
+    res.send(`
+    <h1> Web 44 is Awesome </h1>
+    `)
+})
 server.get('/api/users',(req,res)=>{
-    res.send('array')
+    res.json([{username:"robert",password:"abc"},{username:"robert1",password:"abc"}])
 })
 
 server.post('/api/register',(req,res)=>{
